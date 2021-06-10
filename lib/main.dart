@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           leading: Icon(Icons.account_circle_sharp),
           title: Text(nome[i]),
           trailing: Container(
-            width: 120,
+            width: 70,
             child: Row(
               children: [
                 if (0 < 1)
@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Icon(Icons.delete, color: Colors.red),
                   ),
+                SizedBox(width: 8),
                 GestureDetector(
                   onTap: () {
                     nome.add("Ives Costa");
