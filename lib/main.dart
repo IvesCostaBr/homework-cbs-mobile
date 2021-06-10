@@ -8,13 +8,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print('metodo executado');
     return MaterialApp(
       title: '',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.grey,
       ),
-      home: MyHomePage(title: 'Minha App'),
+      home: MyHomePage(title: 'HomeWork'),
     );
   }
 }
@@ -39,24 +38,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List nome = ['contato1', 'contato2', 'contato3', 'contato6'];
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('HomeWork'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+      body: ListView.builder(
+        itemBuilder: (context, i) => ListTile(
+          leading: Icon(Icons.account_circle_sharp),
+          title: Text(nome[i]),
+          trailing: Container(
+            width: 120,
+            child: Row(
+              children: [
+                if (0 < 1)
+                  GestureDetector(
+                    onTap: () {
+                      nome.remove(nome[i]);
+                      print(nome);
+                    },
+                    child: Icon(Icons.delete, color: Colors.red),
+                  ),
+                GestureDetector(
+                  onTap: () {
+                    nome.add("Ives Costa");
+                    print(nome);
+                  },
+                  child: Icon(Icons.credit_card, color: Colors.blue),
+                )
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
+        itemCount: nome.length,
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
